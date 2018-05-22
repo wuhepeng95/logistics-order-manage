@@ -1,0 +1,161 @@
+body {
+    text-align: center;
+    font-family: Helvetica, STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Tohoma, Arial, "微软雅黑", "幼圆";
+    font-size: 14px;
+    color: #333;
+    background: #F5F5F5;
+}
+
+.head_bg {
+    width: 100%;
+    min-width: 1024px;
+    border-top: 5px solid #333;
+}
+
+.head_bg .head {
+    width: 980px;
+    height: 110px;
+    margin: 0px auto;
+    border-bottom: 3px solid #BD0707;
+}
+
+.head .logo {
+    width: 262px;
+    height: 78px;
+    float: left;
+    margin-top: 20px;
+    margin-left: 15px;
+}
+
+.head .logo img {
+    width: 262px;
+    height: 78px;
+    vertical-align: middle;
+}
+
+.head .menu {
+    width: 530px;
+    float: right;
+}
+
+.menu .head_top {
+    width: 530px;
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+}
+
+.menu .head_top a {
+    font-size: 12px;
+    color: blue;
+}
+
+.menu ul {
+    width: 500px;
+    height: 45px;
+    line-height: 45px;
+    margin-top: 35px;
+    margin-left: 30px;
+}
+
+.menu ul li {
+    float: left;
+    text-align: center;
+    margin-left: 20px;
+}
+
+.menu ul li a {
+    font-size: 16px;
+    color: #333;
+}
+
+.menu ul li a:HOVER {
+    font-size: 17px;
+    color: #BD0707;
+    font-weight: bold;
+}
+
+.menu ul li.news {
+    position: relative;
+    width: 45px;
+}
+
+.menu ul li.news span {
+    display: block;
+    width: 30px;
+    height: 27px;
+    text-align: center;
+    line-height: 23px;
+    background: url(../images/news_icon.png) no-repeat;
+    font-size: 12px;
+    color: #F00;
+    position: absolute;
+    right: -20px;
+    top: -8px;
+}
+
+.main {
+    width: 980px;
+    margin: 0px auto;
+    background: #FFF;
+    min-height: 292px;
+}
+
+.foot_bg {
+    width: 100%;
+    min-width: 1024px;
+    height: 80px;
+    border-bottom: 5px solid #333;
+}
+
+.foot_bg .foot {
+    width: 960px;
+    height: 80px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.foot .foot_t {
+    width: 100%;
+    text-align: right;
+    height: 35px;
+    line-height: 35px;
+}
+
+.foot .foot_t a {
+    font-size: 12px;
+    color: #333;
+    margin-left: 10px;
+}
+
+.foot .copy {
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 12px;
+    color: #333;
+}
+
+/*分页导航*/
+.fenye {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #333;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.fenye span, .fenye a {
+    margin-left: 3px;
+    margin-right: 3px;
+    color: #333;
+}
+
+.fenye a:hover {
+    color: #0670B9;
+}
+
+/*分页导航*/

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="i.am.whp.dao.LogisticsDao">
+    <select id="queryPrice" resultType="i.am.whp.model.po.LogisticsPrice"
+            parameterType="i.am.whp.model.po.LogisticsPrice">
+        SELECT sendcity,reachcity,startprice,perkgprice FROM logisticsprice
+        WHERE sendcity = #{sendcity} and reachcity = #{reachcity}
+    </select>
+
+    <insert id="addLogisticsInfo" parameterType="i.am.whp.model.po.LogisticsInfo">
+        INSERT INTO logisticsinfo(orderid,info,logisticsstate,updatetime)
+        VALUES (#{orderid},#{info},#{logisticsstate},#{updatetime})
+    </insert>
+
+    <select id="queryLogisticsInfo" parameterType="long" resultType="i.am.whp.model.po.LogisticsInfo">
+        SELECT orderid,info,logisticsstate,updatetime FROM logisticsinfo
+        WHERE orderid = #{orderid}
+    </select>
+</mapper>

@@ -1,0 +1,78 @@
+html {
+    height: 100%;
+}
+
+body {
+    background: url(/images/login_bg.jpg);
+    background-size: 100% 100%;
+    padding-top: 140px;
+}
+
+.tit {
+    text-align: center;
+    width: 350px;
+    padding-bottom: 20px;
+    margin: auto auto;
+}
+
+.login-wrap {
+    width: 220px;
+    padding: 30px 50px 0 330px;
+    height: 220px;
+    background: #fff url(/images/yum4.jpg) no-repeat 30px 40px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.login_input {
+    display: block;
+    width: 210px;
+}
+
+.login_user {
+    background: url(/images/input_icon_1.png) no-repeat 200px center;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif
+}
+
+.login_password {
+    background: url(/images/input_icon_2.png) no-repeat 200px center;
+    font-family: "Courier New", Courier, monospace
+}
+
+.btn-login {
+    background: #40454B;
+    box-shadow: none;
+    text-shadow: none;
+    color: #fff;
+    border: none;
+    height: 35px;
+    line-height: 26px;
+    font-size: 14px;
+}
+
+.btn-login:hover {
+    background: #333;
+    color: #fff;
+}
+
+.copyright {
+    margin: auto;
+    margin-top: 10px;
+    text-align: center;
+    width: 370px;
+    color: #CCC
+}
+
+@media (max-height: 700px) {
+    .tit {
+        margin: auto;
+        margin-top: 100px;
+    }
+}
+
+@media (max-height: 500px) {
+    .tit {
+        margin: auto;
+        margin-top: 50px;
+    }
+}

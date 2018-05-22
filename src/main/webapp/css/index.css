@@ -1,0 +1,288 @@
+/*盒子1*/
+.box_1 {
+    width: 960px;
+    margin: 0px auto;
+    padding-top: 10px;
+}
+
+.box_1 .box_1_l {
+    width: 230px;
+    height: 245px;
+    float: left;
+    text-align: center;
+}
+
+.box_1_l a {
+    display: block;
+    width: 212px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    background: #333 none repeat scroll 0 0;
+    font-size: 16px;
+    color: #fff;
+    margin-top: 35px;
+    position: relative;
+    margin-left: 15px;
+}
+
+.box_1_l .a_2 {
+    margin-top: 50px;
+}
+
+.box_1_l a img {
+    width: 19px;
+    height: 19px;
+    position: absolute;
+    left: 148px;
+    top: 6px;
+}
+
+.box_1 .banner {
+    float: right;
+}
+
+/*盒子1*/
+/*盒子2*/
+.box_2 {
+    width: 958px;
+    height: 143px;
+    margin: 0px auto;
+    border: 1px solid #999;
+    background: #DFDDDE;
+}
+
+.tabBox_t, .tabBox {
+    width: 958px;
+    text-align: left;
+}
+
+.tabBox .tabNav {
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+    width: 958px;
+    list-style: none;
+    text-align: left;
+}
+
+.tabBox .tabNav li {
+    float: left;
+    border: 1px solid #999;
+    border-top: none;
+    border-left: none;
+    width: 85px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+    color: #045B95;
+}
+
+.tabBox .tabNav li.now {
+    border-bottom: none;
+    color: #333;
+}
+
+.tabBox .tabCont {
+    display: none;
+    height: 105px;
+    font-size: 16px;
+    padding-left: 20px;
+}
+
+.tabBox .tabCont .ctn {
+    padding-top: 25px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.tabCont span {
+    margin-right: 5px;
+}
+
+.tabCont input {
+    width: 220px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 5px;
+    font-size: 14px;
+    border: none;
+    margin-right: 20px;
+    vertical-align: middle;
+}
+
+.tabCont a {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: #0C5B9D;
+    font-size: 16px;
+    color: #FFF;
+    vertical-align: middle;
+}
+
+/*盒子2*/
+/*盒子3*/
+.box_3 {
+    width: 960px;
+    margin: 0px auto;
+}
+
+.box_3 .box_3_l, .box_3 .box_3_r {
+    width: 435px;
+    height: 247px;
+    border: 1px solid #999;
+}
+
+.box_3 .box_head {
+    width: 435px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 18px;
+    color: #fff;
+    text-align: left;
+    position: relative;
+    background: #333;
+}
+
+.box_3 .box_head span {
+    margin-left: 5px;
+}
+
+.box_3 .box_head a {
+    display: block;
+    width: 19px;
+    height: 19px;
+    position: absolute;
+    right: 12px;
+    top: 7px;
+}
+
+.box_3 .box_head a img {
+    width: 19px;
+    height: 19px;
+    vertical-align: middle;
+}
+
+.box_3 .box_3_l {
+    float: left;
+}
+
+.box_3_l ul {
+    width: 435px;
+    height: 210px;
+    overflow: hidden;
+}
+
+.box_3_l ul li {
+    width: 435px;
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    position: relative;
+}
+
+.box_3_l ul li a {
+    font-size: 16px;
+    color: #333;
+    margin-left: 10px;
+}
+
+.box_3_l ul li span {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+}
+
+.box_3_l ul li a:hover {
+    color: #045D97;
+}
+
+.box_3_l ul li img {
+    vertical-align: middle;
+}
+
+.box_3_l ul li em {
+    font-size: 12px;
+    position: absolute;
+    right: 20px;
+    top: 3px;
+    color: #666;
+}
+
+.box_3 .box_3_r {
+    float: right;
+}
+
+.box_3_r .box16 {
+    width: 435px;
+}
+
+.box16 ul {
+    width: 435px;
+    height: 210;
+    overflow: hidden;
+}
+
+.box16 ul li {
+    width: 435px;
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    position: relative;
+}
+
+.box16 ul li span {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    width: 290px;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-left: 8px;
+}
+
+.box16 ul li span a {
+    font-size: 14px;
+    color: #333;
+    margin-left: 5px;
+    text-align: left;
+}
+
+.box16 ul li a:hover {
+    color: #045D97;
+}
+
+.box16 ul li em {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    color: #666;
+    position: absolute;
+    right: 20px;
+    top: 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: right;
+}
+
+/*盒子3*/
+
+

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="i.am.whp.dao.OrderDao">
+
+    <select id="queryOrder" resultType="i.am.whp.model.po.OrderInfo">
+        select * from orderinfo
+        where username = #{username} order by ordertime desc
+    </select>
+
+    <delete id="deleteOrder">
+        delete from orderinfo
+        where orderid = #{orderid}
+    </delete>
+
+    <insert id="addNewOrder" parameterType="i.am.whp.model.po.OrderInfo">
+        insert into orderinfo
+        values (#{orderid},#{username},#{goodswt},#{postage},#{category},#{consignorid},#{consigneeid},#{ordertime},#{orderstate})
+    </insert>
+
+
+    <select id="queryOrderDetail" resultType="i.am.whp.model.OrderDetailVo">
+        SELECT orderid, oi.username, goodswt, postage,category, consigneename,consigneephone, sendaddress,consignorname, consignorphone,reachaddress,ordertime,orderstate
+        from orderinfo oi,consigneeinfo cee,consignorinfo cor
+        where oi.consignorid = cor.consignorid and oi.consigneeid = cee.consigneeid and oi.orderid = #{orderid}
+    </select>
+
+
+    <select id="queryConsigneeInfoByName" resultType="i.am.whp.model.po.ConsigneeInfo">
+        SELECT * FROM consigneeinfo WHERE username = #{username}
+        order by consigneeid desc
+    </select>
+
+    <select id="queryConsignorInfoByName" resultType="i.am.whp.model.po.ConsignorInfo">
+        SELECT * FROM consignorinfo WHERE username = #{username}
+        order by consignorid desc
+    </select>
+
+    <insert id="addConsigneeInfo" keyProperty="consigneeid" useGeneratedKeys="true"
+            parameterType="i.am.whp.model.po.ConsigneeInfo">
+    insert into consigneeinfo(username,consigneename,consigneephone,reachaddress,zipcode)
+    values(#{username},#{consigneename},#{consigneephone},#{reachaddress},#{zipcode})
+    </insert>
+
+    <insert id="addConsignorInfo" keyProperty="consignorid" useGeneratedKeys="true"
+            parameterType="i.am.whp.model.po.ConsigneeInfo">
+    insert into consignorinfo(username,consignorname,consignorphone,sendaddress,zipcode)
+    values(#{username},#{consignorname},#{consignorphone},#{sendaddress},#{zipcode})
+    </insert>
+
+    <delete id="delConsigneeInfo">
+        delete from consigneeinfo
+        where consigneeid = #{consigneeid}
+
+    </delete>
+
+    <delete id="delConsignorInfo">
+        delete from consignorinfo
+        where consignorid = #{consignorid}
+    </delete>
+
+    <select id="existConsigneeInfo" parameterType="i.am.whp.model.po.ConsigneeInfo" resultType="java.lang.Integer">
+        select consigneeid from consigneeinfo
+        where username = #{username} and consigneename = #{consigneename} and consigneephone = #{consigneephone}
+         and reachaddress = #{reachaddress} and zipcode=#{zipcode}
+    </select>
+
+    <select id="existConsignorInfo" parameterType="i.am.whp.model.po.ConsignorInfo" resultType="java.lang.Integer">
+        select consignorid from consignorinfo
+        where username = #{username} and consignorname = #{consignorname} and consignorphone = #{consignorphone}
+        and sendaddress = #{sendaddress} and zipcode=#{zipcode}
+    </select>
+
+    <update id="updateConsigneeInfo" parameterType="i.am.whp.model.po.ConsigneeInfo">
+        update consigneeinfo
+        <trim prefix="set" suffixOverrides=",">
+            <if test="consigneename!=null">consigneename=#{consigneename},</if>
+            <if test="consigneephone!=null">consigneephone=#{consigneephone},</if>
+            <if test="reachaddress!=null">reachaddress=#{reachaddress},</if>
+            <if test="zipcode!=null">zipcode=#{zipcode},</if>
+        </trim>
+        where consigneeid = #{consigneeid}
+    </update>
+
+    <update id="updateConsignorInfo" parameterType="i.am.whp.model.po.ConsignorInfo">
+        update consignorinfo
+        <trim prefix="set" suffixOverrides=",">
+            <if test="consignorname!=null">consignorname=#{consignorname},</if>
+            <if test="consignorphone!=null">consignorphone=#{consignorphone},</if>
+            <if test="sendaddress!=null">sendaddress=#{sendaddress},</if>
+            <if test="zipcode!=null">zipcode=#{zipcode},</if>
+        </trim>
+        where consignorid = #{consignorid}
+    </update>
+
+    <select id="queryConsigneeInfoById" resultType="i.am.whp.model.po.ConsigneeInfo">
+        select * from consigneeinfo
+        where consigneeid = #{consigneeid}
+    </select>
+
+    <select id="queryConsignorInfoById" resultType="i.am.whp.model.po.ConsignorInfo">
+        select * from consignorinfo
+        where consignorid = #{consignorid}
+    </select>
+</mapper>
