@@ -52,7 +52,7 @@ public class BackstageController {
     public String getAllUser(Model model) {
         List<User> allUser = userService.getAllUser();
         model.addAttribute("allUser", allUser);
-        return "";
+        return "admin/alluser";
     }
 
 }

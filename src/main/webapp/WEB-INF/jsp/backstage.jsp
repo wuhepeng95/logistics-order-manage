@@ -7,8 +7,9 @@
     <title>请登录</title>
     <link rel="shortcut icon" href="/images/logo.ico">
     <link rel="stylesheet" href="/css/bootstrap.css"/>
-    <link rel="stylesheet" href="/css/adminlogin.css"/>
+    <link rel="stylesheet" href="/css/backstage.css"/>
     <link rel="stylesheet" type="text/css" href="/css/alert.css"/>
+
 
     <script type="text/javascript" src="/js/alert.min.js" language="javascript"></script>
     <script type="text/javascript" src="/js/jquery-3.1.0.min.js" language="javascript"></script>
@@ -71,7 +72,8 @@
             <td height="35" valign="bottom">密 码：</td>
         </tr>
         <tr>
-            <td><input id="adminpwd" type="password" class="login_input login_password" value="" placeholder="管理员/运输员密码">
+            <td><input id="adminpwd" type="password" class="login_input login_password" value=""
+                       placeholder="管理员/运输员密码">
             </td>
         </tr>
         <tr>
@@ -83,5 +85,10 @@
     </table>
 </div>
 <div class="copyright">建议使用IE8以上版本或谷歌浏览器</div>
+    <div class="copy">
+        <a href="/" target="_blank">返回前台</a>
+        Copyright&copy;&nbsp;2017-2018&nbsp; 舞鹤物流有限责任公司.&nbsp;&nbsp;All&nbsp;&nbsp;rights&nbsp;&nbsp;reserved.
+        &nbsp;&nbsp;新ICP备10005645
+    </div>
 </body>
 </html>

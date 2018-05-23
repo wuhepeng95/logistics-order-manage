@@ -13,7 +13,7 @@
     <script type="text/javascript" src="/js/alert.min.js" language="javascript"></script>
     <script type="text/javascript" src="/js/jquery-3.1.0.min.js"></script>
 
-    <script type="text/javascript" src="/laydate/sdmenu.js"></script>
+    <script type="text/javascript" src="/js/sdmenu.js"></script>
     <script type="text/javascript" src="/js/clipboard.min.js"></script>
     <script type="text/javascript" src="/laydate/laydate.js"></script>
     <script type="text/javascript">

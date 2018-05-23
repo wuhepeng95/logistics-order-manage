@@ -22,9 +22,12 @@ public class UserController {
     //退出登录
     @RequestMapping("/clearLogin")
     public String clearLogin(HttpSession session) {
+        if (session.getAttribute("backstage") != null){
+            session.removeAttribute("backstage");
+            return "backstage";
+        }
         session.removeAttribute("loginsuccess");
         session.removeAttribute("username");
-        session.removeAttribute("backstage");
         return "redirect:/";
     }
 

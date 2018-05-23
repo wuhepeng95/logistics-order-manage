@@ -11,6 +11,7 @@
     <script type="text/javascript" src="/js/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/sdmenu.js"></script>
+    <script type="text/javascript" src="/laydate/laydate.js"></script>
 </head>
 
 <body>
@@ -18,7 +19,7 @@
     <div class="logo"><img src="/images/admintitle.png" align="middle"/></div>
     <div class="header-right">
         <i class="icon-user icon-white"></i>
-        <a href="#" role="button" data-toggle="modal">运输员${sessionScope.backstage}</a>
+        <a href="#" role="button" data-toggle="modal">管理员${sessionScope.backstage}</a>
         <i class="icon-off icon-white"></i>
         <a id="modal-973558" href="#modal-container-973558" role="button" data-toggle="modal">退出</a>
         <div id="modal-container-973558" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel"
@@ -42,6 +43,7 @@
     </div>
 </div>
 <!-- 顶部 -->
+
 <div id="middle">
     <div class="left">
         <script type="text/javascript">
@@ -54,48 +56,79 @@
 
         <div id="my_menu" class="sdmenu">
             <div class="collapsed">
+                <span>用户管理</span>
+                <a href="#">用户列表</a>
+                <a href="#">添加用户</a>
+            </div>
+            <div class="collapsed">
                 <span>物流管理</span>
-                <a href="#">更改物流信息</a>
-                <a href="#">查看物流信息</a>
+                <a href="#">更改信息</a>
+                <a href="#">已发货订单</a>
+                <a href="#">在途中订单</a>
+                <a href="#">已收货订单</a>
             </div>
             <div class="collapsed">
                 <span>车辆管理</span>
                 <a href="#">车辆信息</a>
                 <a href="#">车载信息</a>
                 <a href="#">车辆配运</a>
-                <a href="/help" target="mainFrame">关于系统</a>
             </div>
         </div>
+
     </div>
+    <div class="Switch"></div>
+    <script type="text/javascript">
+        $(document).ready(function (e) {
+            $(".Switch").click(function () {
+                $(".left").toggle();
+            });
+        });
+    </script>
 
     <div class="right" id="mainFrame">
         <div class="right_cont">
             <ul class="breadcrumb">当前位置：
-                <a href="#">首页</a> <span class="divider">/</span>
+                <a href="#">用户管理</a>
+                <a href="/getAllUser">用户列表</a>
+                <span class="divider">/</span>
             </ul>
-            <div class="title_right"><strong>欢迎来到管理后台</strong></div>
-            <div>
-                <input type="text" placeholder="请输入订单号"/>
-                <input type="text" placeholder="请输入车辆信息"/>
-                <input type="text" placeholder="请输入物流信息"/>
-                <select >
-                    <option>选择物流状态</option>
-                    <option value="已揽件">已揽件</option>
-                    <option value="已发货">已发货</option>
-                    <option value="运输中">运输中</option>
-                    <option value="待收货">待收货</option>
-                    <option value="已签收">已签收</option>
-                </select>
-                <input type="button" value="确认变更"/>
-            </div>
+            <div class="title_right"><strong>用户列表</strong></div>
+            <table class="table table-striped table-bordered table-hover">
+                <tr>
+                    <td>用户id</td>
+                    <td>用户名</td>
+                    <td>角色</td>
+                    <td>邮箱</td>
+                    <td>地址</td>
+                    <td>操作</td>
+                </tr>
+                <c:forEach items="${allUser}" var="user">
+                    <tr>
+                        <td>${user.userid}</td>
+                        <td>${user.username}</td>
+                        <td>${user.role}</td>
+                        <td>${user.email}</td>
+                        <td>${user.address}</td>
+                        <td>
+                            <input type="button" value="编辑" class="btn btn-default"/>
+                            <input type="button" value="停用" class="btn btn-danger"/>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
         </div>
     </div>
-
 </div>
 
 <!-- 底部 -->
 <div id="footer">Copyright&copy;&nbsp;2017-2018&nbsp; 舞鹤物流有限责任公司.&nbsp;&nbsp;All&nbsp;&nbsp;rights&nbsp;&nbsp;reserved.
     &nbsp;&nbsp;新ICP备10005645
 </div>
+<script>
+    !function () {
+        laydate.skin('molv');
+        laydate({elem: '#Calendar'});
+    }();
+</script>
 </body>
 </html>

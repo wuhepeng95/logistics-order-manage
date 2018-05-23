@@ -67,7 +67,10 @@ public class PageController {
     }
 
     @RequestMapping("/adminindex")
-    public String adminindex() {
+    public String adminindex(HttpSession session) {
+//        String backstage = (String) session.getAttribute("backstage");
+//        if (backstage == null || backstage.equals("admin"))
+        // TODO: 2018/5/23 页面控制
         return "admin/adminindex";
     }
 
