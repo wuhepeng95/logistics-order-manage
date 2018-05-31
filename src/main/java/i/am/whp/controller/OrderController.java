@@ -6,7 +6,6 @@ import i.am.whp.model.enums.OrderState;
 import i.am.whp.model.po.ConsigneeInfo;
 import i.am.whp.model.po.ConsignorInfo;
 import i.am.whp.model.po.OrderInfo;
-import i.am.whp.service.InfoService;
 import i.am.whp.service.OrderService;
 import i.am.whp.util.GenerateOrderID;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +25,6 @@ import java.util.Objects;
 public class OrderController {
     @Autowired
     OrderService orderService;
-    @Autowired
-    InfoService infoService;
 
     @RequestMapping("/book")
     public String book(HttpSession session, Model model) {
@@ -244,4 +241,18 @@ public class OrderController {
         return "xgcg";
     }
 
+    @RequestMapping("/booksuccess")
+    public String booksuccess(String orderid, Model model) {
+        model.addAttribute("orderid", orderid);
+        return "booksuccess";
+    }
+
+    @RequestMapping("/zhifusuccess")
+    public String zhifusuccess(String orderid) {
+        OrderInfo orderInfo = new OrderInfo();
+        orderInfo.setOrderid(Long.parseLong(orderid));
+        orderInfo.setOrderstate(OrderState.dailanjian.getState());
+        orderService.updateOrder(orderInfo);
+        return "redirect:/order";
+    }
 }

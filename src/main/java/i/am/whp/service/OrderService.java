@@ -10,7 +10,13 @@ import java.util.List;
 public interface OrderService {
     List<OrderInfo> queryOrder(String username);
 
+    List<OrderInfo> getAllOrder();
+
+    List<OrderInfo> getAllOrderByState(int state);
+
     boolean deleteOrder(long delid);
+
+    boolean updateOrder(OrderInfo orderInfo);
 
     boolean addNewOrder(OrderInfo orderInfo);
 

@@ -7,7 +7,7 @@
     <title>货物追踪</title>
     <link rel="stylesheet" type="text/css" href="/css/reset.css"/>
     <link rel="stylesheet" type="text/css" href="/css/common.css"/>
-    <link rel="shortcut icon" href="/images/logo.ico">
+   <link rel="shortcut icon" href="/images/logo.png">
     <link rel="stylesheet" type="text/css" href="/css/theme.css"/>
     <link rel="stylesheet" type="text/css" href="/css/alert.css"/>
     <script type="text/javascript" src="/js/alert.min.js" language="javascript"></script>
@@ -27,7 +27,8 @@
                     {"orderid": orderid},
                     function (result) {
                         if (result.length !== 0) {
-                            $("table").append("<tr><td colspan='3'>" + "[提示消息]查询成功！订单号:" + orderid +"<a href=orderdetail?orderid="+orderid+">查看该订单详情</a>"+ " 物流信息如下" + "</td></tr>");
+                            $("table").append("<tr><td colspan='3'>" + "[提示消息]查询成功！订单号:" + orderid +"<a href=orderdetail?orderid="+orderid+
+                                ">查看该订单详情</a>"+ " 物流信息如下" + "</td></tr>");
                             $("table").append("<tr><th>物流信息</th><th>物流状态</th><th>表更时间</th></tr>");
                             $.each(result, function (i, one) {
                                 $("table").append("<tr><td>" + one['info'] + "</td><td>" + one['state'] + "</td><td>" + one['updatetime'] + "</td></tr>");
@@ -135,7 +136,7 @@
                         <div class="space_hx">&nbsp;</div>
                         查询信息展示窗口：
                         <div class="space_hx">&nbsp;</div>
-                        <table id="table-7">
+                        <table id="table-7" style="border-style: ">
                             <tr>
                                 <td colspan='3'>[提示消息]请输入订单号查询最新物流信息！</td>
                             </tr>
@@ -163,8 +164,7 @@
         <div class="foot_t">
         </div>
         <div class="copy">
-            <a href="/adminlogin" target="_blank">管理后台</a>
-            Copyright&copy;&nbsp;2017-2018&nbsp; 舞鹤物流有限责任公司.&nbsp;&nbsp;All&nbsp;&nbsp;rights&nbsp;&nbsp;reserved.
+                        Copyright&copy;&nbsp;2017-2018&nbsp; 舞鹤物流有限责任公司.&nbsp;&nbsp;All&nbsp;&nbsp;rights&nbsp;&nbsp;reserved.
             &nbsp;&nbsp;新ICP备10005645
         </div>
     </div>

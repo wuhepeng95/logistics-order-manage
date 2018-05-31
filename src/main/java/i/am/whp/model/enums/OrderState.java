@@ -2,7 +2,7 @@ package i.am.whp.model.enums;
 
 public enum OrderState {
     daizhifu(1, "待支付"),
-    yizhifu(2, "已支付"),
+    dailanjian(2, "待揽件"),
     yunshuzhong(3, "运输中"),
     yiwancheng(4, "已完成"),
     yishixiao(5, "已失效"),;
@@ -24,7 +24,7 @@ public enum OrderState {
             case 1:
                 return daizhifu;
             case 2:
-                return yizhifu;
+                return dailanjian;
             case 3:
                 return yunshuzhong;
             case 4:

@@ -10,10 +10,29 @@
         where username = #{username} order by ordertime desc
     </select>
 
+    <select id="getAllOrder" resultType="i.am.whp.model.po.OrderInfo">
+        select * from orderinfo
+        order by ordertime desc
+    </select>
+
+    <select id="getAllOrderByState" resultType="i.am.whp.model.po.OrderInfo">
+        select * from orderinfo
+        where orderstate=#{state}
+        order by ordertime desc
+    </select>
+
     <delete id="deleteOrder">
         delete from orderinfo
         where orderid = #{orderid}
     </delete>
+
+    <update id="updateOrder" parameterType="i.am.whp.model.po.OrderInfo">
+        update orderinfo
+        <trim prefix="set" suffixOverrides=",">
+            <if test="orderstate!=null">orderstate=#{orderstate},</if>
+        </trim>
+        where orderid = #{orderid}
+    </update>
 
     <insert id="addNewOrder" parameterType="i.am.whp.model.po.OrderInfo">
         insert into orderinfo
@@ -23,8 +42,10 @@
 
     <select id="queryOrderDetail" resultType="i.am.whp.model.OrderDetailVo">
         SELECT orderid, oi.username, goodswt, postage,category, consigneename,consigneephone, sendaddress,consignorname, consignorphone,reachaddress,ordertime,orderstate
-        from orderinfo oi,consigneeinfo cee,consignorinfo cor
-        where oi.consignorid = cor.consignorid and oi.consigneeid = cee.consigneeid and oi.orderid = #{orderid}
+        from orderinfo oi
+        left join consigneeinfo cee on oi.consigneeid = cee.consigneeid
+        left join consignorinfo cor on oi.consignorid = cor.consignorid
+        where oi.orderid = #{orderid}
     </select>
 
 

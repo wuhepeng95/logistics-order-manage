@@ -303,3 +303,11 @@ div.sdmenu div a.current:hover {
 tr{
     align-content: center;
 }
+
+form {
+    width: 500px;
+    height: auto;
+}
+form .operation{
+    text-align: center;
+}

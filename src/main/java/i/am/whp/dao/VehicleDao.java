@@ -1,20 +1,22 @@
 package i.am.whp.dao;
 
 
-import i.am.whp.model.po.User;
+import i.am.whp.model.LoadInfo;
+import i.am.whp.model.po.Vehicle;
 
 import java.util.List;
 
-public interface UserDao {
-    //select
-    User queryUser(String username);
-    //select
-    int checkPassword(User user);
-    //insert
-    int addUser(User user);
-    //updated
-    int updateUser(User user);
-    //get all user
-    List<User> getAllUser();
+public interface VehicleDao {
+    int addVehicle(Vehicle vehicle);
+
+    int deleteVehicle(String vehicleid);
+
+    Vehicle getVehicleById(String vehicleid);
+
+    List<Vehicle> getAllVehicles();
+
+    List<Vehicle> getAllVehicleByDriver(String transporter);
+
+    int updateVehicle(Vehicle vehicle);
 }
 

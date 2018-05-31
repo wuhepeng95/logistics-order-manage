@@ -1,38 +1,35 @@
 package i.am.whp.model.enums;
 
-public enum Role {
-    admin(1, "管理员"),
-    transporter(2, "运输员"),
-    user(3, "用户"),;
+public enum VehicleState {
+    normal(1, "正常运行"),
+    offtheline(2, "报修停运"),;
 
-    private int role;
+    private int state;
     private String detail;
 
-    Role(int role, String detail) {
-        this.role = role;
+    VehicleState(int state, String detail) {
+        this.state = state;
         this.detail = detail;
 
     }
 
-    public int getRole() {
-        return this.role;
+    public int getState() {
+        return this.state;
     }
 
-    public static Role valueOf(int role) {
+    public static VehicleState valueOf(int state) {
 
-        switch (role) {
+        switch (state) {
             case 1:
-                return admin;
+                return normal;
             case 2:
-                return transporter;
-            case 3:
-                return user;
+                return offtheline;
         }
         return null;
     }
 
-    public void setRole(int role) {
-        this.role = role;
+    public void setState(int state) {
+        this.state = state;
     }
 
     public String getDetail() {

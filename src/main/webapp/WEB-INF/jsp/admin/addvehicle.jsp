@@ -11,47 +11,23 @@
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         function add() {
-            var username = $("input[name='username']").val();
-            var reg = /^[\w]{2,12}$/;
-            if (username === "") {
-                alert("用户名不能为空");
+            if ($("input[name='vehicleid']").val() === "") {
+                alert("车牌号不能为空");
                 return false;
-            } else if (!reg.test(username)) {
-                alert("用户名格式不正确");
-                return false;
-            } else {
-                var result;
-                $.ajax({
-                    type: 'post',
-                    url: "checkName",
-                    data: {"username": username},
-                    async: false,
-                    success: function (res) {
-                        if (res === "true") {
-                            alert("用户已存在!");
-                            result = false;
-                        }
-                    }
-                });
-                if (result == false) {
-                    return result;
-                }
-                if ($("select[name='role']").val() === "") {
-                    alert("请选择角色");
-                    return false;
-                } else {
-                    alert("添加成功");
-                    return true;
-                }
             }
+            if ($("select[name='state']").val() === 0) {
+                alert("请选择车辆状态");
+                return false;
+            }
+            alert("添加成功");
+            return true;
         }
-
         function resetForm() {
-            $("input[name='username']").val("");
-            $("select[name='role']").val("");
-            $("input[name='mobile']").val("");
-            $("input[name='email']").val("");
-            $("input[name='address']").val("");
+            $("input[name='vehicleid']").val("");
+            $("input[name='nowplace']").val("");
+            $("select[name='state']").val(0);
+            $("input[name='owner']").val("");
+            $("input[name='driver']").val("");
         }
     </script>
 </head>
@@ -62,45 +38,44 @@
         <ul class="breadcrumb">当前位置：
             <a href="/adminindex" target="_parent">首页</a>
             <span class="divider">/</span>
-            <a href="#">用户管理</a>
+            <a href="#">车辆管理</a>
             <span class="divider">/</span>
-            <a href="#">添加用户</a>
+            <a href="#">添加车辆</a>
         </ul>
         <br>
-        <form action="/doAddUser" method="post" class="form-horizontal">
+        <form action="/doAddVehicle" method="post" class="form-horizontal">
             <div class="control-group">
-                <label class="control-label">用户名</label>
+                <label class="control-label">车牌号</label>
                 <div class="controls">
-                    <input type="text" placeholder="2-12个字符" name="username">
+                    <input type="text" placeholder="请输入车牌号" name="vehicleid">
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label">角色</label>
+                <label class="control-label">现处位置</label>
                 <div class="controls">
-                    <select name="role">
-                        <option value="">请选择角色</option>
-                        <option value="1">管理员</option>
-                        <option value="2">运输员</option>
-                        <option value="3">用户</option>
+                    <input type="text" class="form-control" placeholder="位置" name="nowplace"/><br>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">状态</label>
+                <div class="controls">
+                    <select name="state">
+                        <option value="0">请选择车辆状态</option>
+                        <option value="1">正常运行</option>
+                        <option value="2">报修停运</option>
                     </select>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label">手机号</label>
+                <label class="control-label">拥有者</label>
                 <div class="controls">
-                    <input type="text" class="form-control" placeholder="手机号" name="mobile"/><br>
+                    <input type="text" class="form-control" placeholder="拥有者" name="owner"/><br>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label">邮箱</label>
+                <label class="control-label">驾驶员</label>
                 <div class="controls">
-                    <input type="text" class="form-control" placeholder="邮箱" name="email"/><br>
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label">地址</label>
-                <div class="controls">
-                    <input type="text" class="form-control" placeholder="地址" name="address"/><br>
+                    <input type="text" class="form-control" placeholder="驾驶员" name="driver"/><br>
                 </div>
             </div>
             <div class="operation">

@@ -3,7 +3,6 @@ package i.am.whp.controller;
 import i.am.whp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
@@ -61,6 +60,7 @@ public class PageController {
         return "help";
     }
 
+
     @RequestMapping("/adminlogin")
     public String adminlogin() {
         return "backstage";
@@ -69,7 +69,7 @@ public class PageController {
     @RequestMapping("/adminindex")
     public String adminindex(HttpSession session) {
 //        String backstage = (String) session.getAttribute("backstage");
-//        if (backstage == null || backstage.equals("admin"))
+//        if (backstage == null || backstage.equals("normal"))
         // TODO: 2018/5/23 页面控制
         return "admin/adminindex";
     }
@@ -79,10 +79,13 @@ public class PageController {
         return "transporter/transporterindex";
     }
 
-    @RequestMapping("/booksuccess")
-    public String booksuccess(String orderid, Model model) {
-        model.addAttribute("orderid", orderid);
-        return "booksuccess";
+     @RequestMapping("/addUser")
+    public String addUser() {
+        return "admin/adduser";
     }
 
+    @RequestMapping("/addVehicle")
+    public String addVehicle() {
+        return "admin/addvehicle";
+    }
 }

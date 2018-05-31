@@ -5,9 +5,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>舞鹤物流</title>
+    <link rel="shortcut icon" href="/images/logo.png">
     <link rel="stylesheet" type="text/css" href="/css/reset.css"/>
     <link rel="stylesheet" type="text/css" href="/css/common.css"/>
-    <link rel="shortcut icon" href="/images/logo.ico">
     <link rel="stylesheet" type="text/css" href="/css/alert.css"/>
     <script type="text/javascript" src="/js/alert.min.js" language="javascript"></script>
     <script type="text/javascript" src="/js/jquery-3.1.0.min.js"></script>

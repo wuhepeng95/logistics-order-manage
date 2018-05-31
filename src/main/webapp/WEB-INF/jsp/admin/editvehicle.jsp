@@ -1,4 +1,4 @@
-<%@ page import="i.am.whp.model.enums.Role" %>
+<%@ page import="i.am.whp.model.enums.VehicleState" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -23,43 +23,44 @@
         <ul class="breadcrumb">当前位置：
             <a href="/adminindex" target="_parent">首页</a>
             <span class="divider">/</span>
-            <a href="#">用户管理</a>
+            <a href="#">车辆管理</a>
             <span class="divider">/</span>
-            <a href="#">添加用户</a>
+            <a href="#">修改车辆信息</a>
         </ul>
         <br>
-        <form action="/doEditUser" method="post" class="form-horizontal">
+        <form action="/doEditVehicle" method="post" class="form-horizontal">
             <div class="control-group">
-                <label class="control-label">用户名</label>
+                <label class="control-label">车牌号</label>
                 <div class="controls" style="margin-top: 4px;">
-                    <input type="hidden" placeholder="2-12个字符" name="username" value="${edituser.username}">
-                    ${edituser.username}
+                    <input type="hidden" name="vehicleid" value="${editvehicle.vehicleid}">
+                    ${editvehicle.vehicleid}
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label">角色</label>
+                <label class="control-label">状态</label>
                 <div class="controls" style="margin-top: 4px;">
-                    ${Role.valueOf(edituser.role).detail}
+                    ${VehicleState.valueOf(editvehicle.state).detail}
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label">手机号</label>
+                <label class="control-label">现处位置</label>
                 <div class="controls">
-                    <input type="text" class="form-control" placeholder="手机号" name="mobile" value="${edituser.mobile}"/><br>
+                    <input type="text" class="form-control" placeholder="现处位置" name="nowplace"
+                           value="${editvehicle.nowplace}"/><br>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label">邮箱</label>
+                <label class="control-label">拥有者</label>
                 <div class="controls">
-                    <input type="text" class="form-control" placeholder="邮箱" name="email"
-                           value="${edituser.email}"/><br>
+                    <input type="text" class="form-control" placeholder="拥有者" name="owner"
+                           value="${editvehicle.owner}"/><br>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label">地址</label>
+                <label class="control-label">驾驶员</label>
                 <div class="controls">
-                    <input type="text" class="form-control" placeholder="地址" name="address"
-                           value="${edituser.address}"/><br>
+                    <input type="text" class="form-control" placeholder="驾驶员" name="driver"
+                           value="${editvehicle.driver}"/><br>
                 </div>
             </div>
             <div class="operation">

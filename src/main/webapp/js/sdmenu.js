@@ -18,7 +18,6 @@ SDMenu.prototype.init = function() {
 		var links = this.menu.getElementsByTagName("a");
 		for (var i = 0; i < links.length; i++)
 			if (links[i].href == document.location.href) {
-				links[i].className = "current";
 				break;
 			}
 	}
@@ -28,7 +27,7 @@ SDMenu.prototype.init = function() {
 		if (match) {
 			var states = match[1].split("");
 			for (var i = 0; i < states.length; i++)
-				this.submenus[i].className = (states[i] == 0 ? "collapsed" : "");
+				this.submenus[i].className = (states[i] === 0 ? "collapsed" : "");
 		}
 	}
 };

@@ -13,29 +13,12 @@
     <script type="text/javascript" src="/js/sdmenu.js"></script>
     <script type="text/javascript">
         $(function () {
-            $("#addLogInfo").submit(function () {
-                var orderid = $("#orderid").val();
-                var state = $("#state").val();
-                var vehicle = $("#vehicle").val();
-                var info = $("#info").val();
-                var reg = /^[0-9]{12}$/;
-                if (!reg.test(orderid)) {
-                    alert("订单号格式错误！");
-                    return false;
-                }
+            $("#formid").submit(function () {
                 if (state === "0") {
-                    alert("请选择物流状态！");
+                    alert("请选择订单状态！");
                     return false;
                 }
-                if (vehicle === "0") {
-                    alert("请选择车辆！");
-                    return false;
-                }
-                if (info === "") {
-                    alert("物流信息不能为空！");
-                    return false;
-                }
-                alert("物流信息变更成功！");
+                alert("订单状态变更成功！");
                 return true;
             })
         })
@@ -100,48 +83,42 @@
                 <a href="#">物流管理</a>
                 <span class="divider">/</span>
                 <a href="#">更改物流信息</a>
+                <span class="divider">/</span>
+                <a href="#">订单状态变更</a>
             </ul>
             <div class="title_right"><strong>更改物流信息</strong></div>
 
-            <form action="/addLogisticsInfo" method="post" id="addLogInfo" class="form-horizontal">
+            <form action="/doChangeOrderState" method="post" id="formid" class="form-horizontal">
                 <div class="control-group">
                     <label class="control-label">订单号</label>
-                    <div class="controls">
-                        <input type="text" placeholder="请输入订单号" name="orderid" id="orderid">
+                    <div class="controls" style="margin-top: 4px;">
+                        <input type="hidden" value="${orderDetailVo.orderid}" name="orderid">
+                        ${orderDetailVo.orderid}
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label">选择车辆</label>
-                    <div class="controls">
-                        <select name="vehicle" id="vehicle">
-                            <option value="0">请选择车辆</option>
-                            <c:forEach items="${myvehicle}" var="myvehicle">
-                                <option value="${myvehicle.vehicleid}">${myvehicle.vehicleid}</option>
-                            </c:forEach>
-                        </select>
+                    <label class="control-label">当前状态</label>
+                    <div class="controls" style="margin-top: 4px;">
+                        ${orderDetailVo.orderstate}
                     </div>
                 </div>
-                <div class="control-group">
+                <div cass="control-group">
                     <label class="control-label">订单状态</label>
                     <div class="controls">
                         <select name="state" id="state">
-                            <option value="0">选择物流状态</option>
-                            <option value="1">已揽件</option>
-                            <option value="2">已发货</option>
+                            <option value="0">请选择订单状态</option>
+                            <option value="1">待支付</option>
+                            <option value="2">待揽件</option>
                             <option value="3">运输中</option>
-                            <option value="4">待收货</option>
-                            <option value="5">已签收</option>
+                            <option value="4">已完成</option>
+                            <option value="5">已失效</option>
                         </select>
                     </div>
                 </div>
-                <div class="control-group">
-                    <label class="control-label">物流信息</label>
-                    <div class="controls">
-                        <textarea name="info" id="info"></textarea>
-                    </div>
-                </div>
+                <br>
                 <div class="operation">
-                    <input type="submit" value="确认变更" class="btn btn-default"/>
+                    <input type="submit" value="确认变更" class="btn btn-danger"/>
+                    <a href="/changelogistics" ><input type="button" value="无需变更" class="btn btn-success"/></a>
                 </div>
             </form>
         </div>

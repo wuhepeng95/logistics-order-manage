@@ -23,8 +23,23 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public List<OrderInfo> getAllOrder() {
+        return orderDao.getAllOrder();
+    }
+
+    @Override
+    public List<OrderInfo> getAllOrderByState(int state) {
+        return orderDao.getAllOrderByState(state);
+    }
+
+    @Override
     public boolean deleteOrder(long delid) {
         return orderDao.deleteOrder(delid) == 1;
+    }
+
+    @Override
+    public boolean updateOrder(OrderInfo orderInfo) {
+        return orderDao.updateOrder(orderInfo) == 1;
     }
 
     @Override

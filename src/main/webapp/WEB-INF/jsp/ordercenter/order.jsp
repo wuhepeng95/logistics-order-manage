@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/css/reset.css"/>
     <link rel="stylesheet" type="text/css" href="/css/common.css"/>
 
-    <link rel="shortcut icon" href="/images/logo.ico">
+   <link rel="shortcut icon" href="/images/logo.png">
     <link rel="stylesheet" type="text/css" href="/css/theme.css"/>
     <link rel="stylesheet" type="text/css" href="/css/alert.css"/>
     <script type="text/javascript" src="/js/alert.min.js" language="javascript"></script>
@@ -187,8 +187,7 @@
 
         </div>
         <div class="copy">
-            <a href="/adminlogin" target="_blank">管理后台</a>
-            Copyright&copy;&nbsp;2017-2018&nbsp; 舞鹤物流有限责任公司.&nbsp;&nbsp;All&nbsp;&nbsp;rights&nbsp;&nbsp;reserved.
+                        Copyright&copy;&nbsp;2017-2018&nbsp; 舞鹤物流有限责任公司.&nbsp;&nbsp;All&nbsp;&nbsp;rights&nbsp;&nbsp;reserved.
             &nbsp;&nbsp;新ICP备10005645
         </div>
     </div>

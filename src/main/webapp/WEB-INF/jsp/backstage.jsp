@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>请登录</title>
-    <link rel="shortcut icon" href="/images/logo.ico">
+   <link rel="shortcut icon" href="/images/logo.png">
     <link rel="stylesheet" href="/css/bootstrap.css"/>
     <link rel="stylesheet" href="/css/backstage.css"/>
     <link rel="stylesheet" type="text/css" href="/css/alert.css"/>

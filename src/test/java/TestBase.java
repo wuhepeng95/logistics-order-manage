@@ -1,6 +1,7 @@
 import i.am.whp.dao.LogisticsDao;
 import i.am.whp.dao.OrderDao;
 import i.am.whp.dao.UserDao;
+import i.am.whp.dao.VehicleDao;
 import i.am.whp.model.po.ConsigneeInfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,6 +18,8 @@ public class TestBase {
     UserDao userDao;
     @Autowired
     OrderDao orderDao;
+    @Autowired
+    VehicleDao vehicleDao;
 
     @Test
     public void getLogisticsInfo() {
@@ -61,5 +64,10 @@ public class TestBase {
     @Test
     public void getAllUser() {
         System.out.println(userDao.getAllUser());
+    }
+
+    @Test
+    public void getLoadInfo() {
+        //System.out.println(vehicleDao.getLoadInfo());
     }
 }

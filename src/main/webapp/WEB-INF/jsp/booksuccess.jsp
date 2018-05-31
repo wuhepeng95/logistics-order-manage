@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>下单成功</title>
-    <link rel="shortcut icon" href="/images/logo.ico">
+    <link rel="shortcut icon" href="/images/logo.png">
     <link rel="stylesheet" type="text/css" href="/css/reset.css"/>
     <link rel="stylesheet" type="text/css" href="/css/common.css"/>
     <link rel="stylesheet" type="text/css" href="/css/theme.css"/>
@@ -40,6 +40,10 @@
                 laydate.skin('molv');
                 laydate({elem: '#Calendar'});
             });
+            $("input[value='确认']").click(function () {
+                alert("支付成功");
+                location.href = "zhifusuccess?orderid=" + ${orderid};
+            })
         })
     </script>
 </head>
@@ -107,7 +111,7 @@
     <div class="space_hx">&nbsp;</div>
     <div class="space_hx">&nbsp;</div>
     请选择上门时间:
-    <input type="text" id="Calendar" class="laydate-icon span1-1"  value="">
+    <input type="text" id="Calendar" class="laydate-icon span1-1" value="">
     <input type="button" value="确认">
 </div>
 <!--底部-->
@@ -117,8 +121,7 @@
 
         </div>
         <div class="copy">
-            <a href="/adminlogin" target="_blank">管理后台</a>
-            Copyright&copy;&nbsp;2017-2018&nbsp; 舞鹤物流有限责任公司.&nbsp;&nbsp;All&nbsp;&nbsp;rights&nbsp;&nbsp;reserved.
+                        Copyright&copy;&nbsp;2017-2018&nbsp; 舞鹤物流有限责任公司.&nbsp;&nbsp;All&nbsp;&nbsp;rights&nbsp;&nbsp;reserved.
             &nbsp;&nbsp;新ICP备10005645
         </div>
     </div>

@@ -18,6 +18,19 @@ public enum Role {
         return this.role;
     }
 
+    public static Role valueOf(int role) {
+
+        switch (role) {
+            case 1:
+                return admin;
+            case 2:
+                return transporter;
+            case 3:
+                return user;
+        }
+        return null;
+    }
+
     public void setRole(int role) {
         this.role = role;
     }

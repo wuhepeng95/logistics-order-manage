@@ -1,3 +1,4 @@
+<%@ page import="i.am.whp.model.enums.Role" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -10,48 +11,8 @@
     <script type="text/javascript" src="/js/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <script type="text/javascript">
-        function add() {
-            var username = $("input[name='username']").val();
-            var reg = /^[\w]{2,12}$/;
-            if (username === "") {
-                alert("用户名不能为空");
-                return false;
-            } else if (!reg.test(username)) {
-                alert("用户名格式不正确");
-                return false;
-            } else {
-                var result;
-                $.ajax({
-                    type: 'post',
-                    url: "checkName",
-                    data: {"username": username},
-                    async: false,
-                    success: function (res) {
-                        if (res === "true") {
-                            alert("用户已存在!");
-                            result = false;
-                        }
-                    }
-                });
-                if (result == false) {
-                    return result;
-                }
-                if ($("select[name='role']").val() === "") {
-                    alert("请选择角色");
-                    return false;
-                } else {
-                    alert("添加成功");
-                    return true;
-                }
-            }
-        }
-
-        function resetForm() {
-            $("input[name='username']").val("");
-            $("select[name='role']").val("");
-            $("input[name='mobile']").val("");
-            $("input[name='email']").val("");
-            $("input[name='address']").val("");
+        function cancelEdit() {
+            location.href = "/getAllUser";
         }
     </script>
 </head>
@@ -67,45 +28,43 @@
             <a href="#">添加用户</a>
         </ul>
         <br>
-        <form action="/doAddUser" method="post" class="form-horizontal">
+        <form action="/doEditUser" method="post" class="form-horizontal">
             <div class="control-group">
                 <label class="control-label">用户名</label>
-                <div class="controls">
-                    <input type="text" placeholder="2-12个字符" name="username">
+                <div class="controls" style="margin-top: 4px;">
+                    <input type="hidden" placeholder="2-12个字符" name="username" value="${edituser.username}">
+                    ${edituser.username}
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">角色</label>
-                <div class="controls">
-                    <select name="role">
-                        <option value="">请选择角色</option>
-                        <option value="1">管理员</option>
-                        <option value="2">运输员</option>
-                        <option value="3">用户</option>
-                    </select>
+                <div class="controls" style="margin-top: 4px;">
+                    ${Role.valueOf(edituser.role).detail}
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">手机号</label>
                 <div class="controls">
-                    <input type="text" class="form-control" placeholder="手机号" name="mobile"/><br>
+                    <input type="text" class="form-control" placeholder="手机号" name="mobile" value="${edituser.mobile}"/><br>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">邮箱</label>
                 <div class="controls">
-                    <input type="text" class="form-control" placeholder="邮箱" name="email"/><br>
+                    <input type="text" class="form-control" placeholder="邮箱" name="email"
+                           value="${edituser.email}"/><br>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">地址</label>
                 <div class="controls">
-                    <input type="text" class="form-control" placeholder="地址" name="address"/><br>
+                    <input type="text" class="form-control" placeholder="地址" name="address"
+                           value="${edituser.address}"/><br>
                 </div>
             </div>
             <div class="operation">
-                <input type="submit" value="添加" class="btn btn-default" onclick="return add()"/>&nbsp;
-                <input type="button" value="重置" class="btn btn-default" onclick="resetForm()"/>
+                <input type="submit" value="修改" class="btn btn-default" onclick="javascript:alert('修改完成')"/>&nbsp;
+                <input type="button" value="取消" class="btn btn-default" onclick="cancelEdit()"/>
             </div>
         </form>
     </div>

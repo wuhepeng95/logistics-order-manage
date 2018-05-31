@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>请登录</title>
-    <link rel="shortcut icon" href="/images/logo.ico">
+    <link rel="shortcut icon" href="/images/logo.png">
     <link rel="stylesheet" type="text/css" href="/css/reset.css"/>
     <link rel="stylesheet" type="text/css" href="/css/common.css"/>
     <link rel="stylesheet" type="text/css" href="/css/theme.css"/>
@@ -48,7 +48,9 @@
                                 'content': '登录成功,跳转到主页...',
                                 'closeTime': 1000
                             }).show();
-                            setTimeout(function(){location.href="/"},1000)
+                            setTimeout(function () {
+                                location.href = "/"
+                            }, 1000)
                         } else if (result == "mmcw") {
                             jqueryAlert({
                                 'icon': '/images/error.png',
@@ -78,8 +80,8 @@
 
             <c:if test="${sessionScope.loginsuccess!=true}">
                 <div class="head_top">
-                    <a href="login" class="submit">登录</a>
-                    <a href="register" class="submit">注册</a>
+                    <a href="login">登录</a>
+                    <a href="register">注册</a>
                 </div>
             </c:if>
             <c:if test="${sessionScope.loginsuccess==true}">
@@ -145,7 +147,6 @@
 
         </div>
         <div class="copy">
-            <a href="/adminlogin" target="_blank">管理后台</a>
             Copyright&copy;&nbsp;2017-2018&nbsp; 舞鹤物流有限责任公司.&nbsp;&nbsp;All&nbsp;&nbsp;rights&nbsp;&nbsp;reserved.
             &nbsp;&nbsp;新ICP备10005645
         </div>

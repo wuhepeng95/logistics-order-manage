@@ -3,37 +3,38 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="i.am.whp.dao.UserDao">
-
-    <!--用户登录表-->
-    <select id="queryUser" resultType="i.am.whp.model.po.User">
-        SELECT * FROM user
-        WHERE username = #{username}
-    </select>
-
-    <select id="checkPassword" parameterType="i.am.whp.model.po.User" resultType="java.lang.Integer">
-        SELECT COUNT(*) FROM user
-        WHERE username = #{username} and password = #{password}
-    </select>
-
-    <insert id="addUser" parameterType="i.am.whp.model.po.User">
-        INSERT INTO user(username,password,email,regtime,logintime)
-        VALUES (#{username},#{password},#{email},#{regtime},#{logintime})
+<mapper namespace="i.am.whp.dao.VehicleDao">
+    <insert id="addVehicle" parameterType="i.am.whp.model.po.Vehicle">
+        insert into vehicle(vehicleid,nowplace,state,owner,driver)
+        values(#{vehicleid},#{nowplace},#{state},#{owner},#{driver})
     </insert>
 
-    <update id="updateUser" parameterType="i.am.whp.model.po.User">
-        UPDATE user
-        <trim prefix="set" suffixOverrides=",">
-            <if test="password!=null">password=#{password},</if>
-            <if test="mobile!=null">mobile=#{mobile},</if>
-            <if test="email!=null">email=#{email},</if>
-            <if test="address!=null">address=#{address},</if>
-            <if test="logintime!=null">logintime=#{logintime},</if>
-        </trim>
-        WHERE username=#{username}
-    </update>
+    <delete id="deleteVehicle">
+        delete from vehicle
+        where vehicleid=#{vehicleid}
+    </delete>
 
-    <select id="getAllUser" resultType="i.am.whp.model.po.User">
-        SELECT * FROM user
+    <select id="getAllVehicles" resultType="i.am.whp.model.po.Vehicle">
+        select * from vehicle
     </select>
+
+    <select id="getVehicleById" resultType="i.am.whp.model.po.Vehicle">
+        select * from vehicle where vehicleid=#{vehicleid}
+    </select>
+
+    <select id="getAllVehicleByDriver" resultType="i.am.whp.model.po.Vehicle">
+        select * from vehicle
+        where driver=#{transporter}
+    </select>
+
+    <update id="updateVehicle" parameterType="i.am.whp.model.po.Vehicle">
+        update vehicle
+        <trim prefix="set" suffixOverrides=",">
+            <if test="nowplace!=null">nowplace=#{nowplace},</if>
+            <if test="state!=0">state=#{state},</if>
+            <if test="owner!=null">owner=#{owner},</if>
+            <if test="driver!=null">driver=#{driver},</if>
+        </trim>
+        where vehicleid = #{vehicleid}
+    </update>
 </mapper>

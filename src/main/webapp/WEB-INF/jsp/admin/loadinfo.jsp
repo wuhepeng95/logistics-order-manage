@@ -20,17 +20,12 @@
         <ul class="breadcrumb">当前位置：
             <a href="#">车辆管理</a>
             <span class="divider">/</span>
-            <a href="/getAllVehicle">全部车辆</a>
+            <a href="#">车载信息</a>
         </ul>
-        <div class="title_right"><strong>全部车辆</strong></div>
         <table class="table table-striped table-bordered table-hover">
             <tr>
                 <td>车牌号</td>
-                <td>现在位置</td>
-                <td>拥有者</td>
-                <td>状态</td>
-                <td>司机</td>
-                <td>操作</td>
+                <td>所载单号</td>
             </tr>
             <c:forEach items="${allVehicle}" var="vehicle">
                 <tr>

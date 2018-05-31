@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>舞鹤物流管理后台</title>
-    <link rel="shortcut icon" href="/images/logo.ico">
+   <link rel="shortcut icon" href="/images/logo.png">
     <link rel="stylesheet" href="/css/bootstrap.css"/>
     <link rel="stylesheet" href="/css/admin.css"/>
     <script type="text/javascript" src="/js/jquery-3.1.0.min.js"></script>
@@ -18,10 +18,10 @@
     <div class="logo"><img src="/images/admintitle.png" align="middle"/></div>
     <div class="header-right">
         <i class="icon-user icon-white"></i>
-        <a href="#" role="button" data-toggle="modal">运输员${sessionScope.backstage}</a>
+        <a href="#" state="button" data-toggle="modal">运输员${sessionScope.backstage}</a>
         <i class="icon-off icon-white"></i>
-        <a id="modal-973558" href="#modal-container-973558" role="button" data-toggle="modal">退出</a>
-        <div id="modal-container-973558" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel"
+        <a id="modal-973558" href="#modal-container-973558" state="button" data-toggle="modal">退出</a>
+        <div id="modal-container-973558" class="modal hide fade" state="dialog" aria-labelledby="myModalLabel"
              aria-hidden="true" style="width:300px; margin-left:-150px; top:30%">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -55,15 +55,11 @@
         <div id="my_menu" class="sdmenu">
             <div class="collapsed">
                 <span>物流管理</span>
-                <a href="#">更改物流信息</a>
-                <a href="#">查看物流信息</a>
+                <a href="/changelogistics">更改物流信息</a>
             </div>
             <div class="collapsed">
                 <span>车辆管理</span>
-                <a href="#">车辆信息</a>
-                <a href="#">车载信息</a>
-                <a href="#">车辆配运</a>
-                <a href="/help" target="mainFrame">关于系统</a>
+                <a href="/myvehicle">我的车辆</a>
             </div>
         </div>
     </div>
@@ -74,25 +70,10 @@
                 <a href="#">首页</a> <span class="divider">/</span>
             </ul>
             <div class="title_right"><strong>欢迎来到管理后台</strong></div>
-            <div>
-                <input type="text" placeholder="请输入订单号"/>
-                <input type="text" placeholder="请输入车辆信息"/>
-                <input type="text" placeholder="请输入物流信息"/>
-                <select >
-                    <option>选择物流状态</option>
-                    <option value="已揽件">已揽件</option>
-                    <option value="已发货">已发货</option>
-                    <option value="运输中">运输中</option>
-                    <option value="待收货">待收货</option>
-                    <option value="已签收">已签收</option>
-                </select>
-                <input type="button" value="确认变更"/>
-            </div>
+
         </div>
     </div>
-
 </div>
-
 <!-- 底部 -->
 <div id="footer">Copyright&copy;&nbsp;2017-2018&nbsp; 舞鹤物流有限责任公司.&nbsp;&nbsp;All&nbsp;&nbsp;rights&nbsp;&nbsp;reserved.
     &nbsp;&nbsp;新ICP备10005645

@@ -11,9 +11,15 @@ public interface OrderDao {
 
     List<OrderInfo> queryOrder(String username);
 
+    List<OrderInfo> getAllOrder();
+
+    List<OrderInfo> getAllOrderByState(int state);
+
     int addNewOrder(OrderInfo orderInfo);
 
     int deleteOrder(long orderid);
+
+    int updateOrder(OrderInfo orderInfo);
 
     OrderDetailVo queryOrderDetail(long orderid);
 

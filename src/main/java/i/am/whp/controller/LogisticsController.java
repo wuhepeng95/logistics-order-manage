@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -31,18 +30,6 @@ public class LogisticsController {
             model.addAttribute("followId",orderid);
         }
         return "follow";
-    }
-
-    @RequestMapping("/addLogisticsInfo")
-    public String addLogisticsInfo(String orderid, String info, String status, HttpSession session) {
-        LogisticsInfo logisticsInfo = new LogisticsInfo();
-        logisticsInfo.setOrderid(Integer.parseInt(orderid));
-        logisticsInfo.setInfo(info);
-        logisticsInfo.setLogisticsstate(LogisticsState.valueOf(status).getState());
-        logisticsInfo.setUpdatetime(new Timestamp(System.currentTimeMillis()));
-        logisticsService.addLogisticsInfo(logisticsInfo);
-        session.setAttribute("addinfoflag", "true");
-        return "redirect:admin";
     }
 
     @RequestMapping(value = "/queryPrice", produces = "text/plain;charset=UTF-8")

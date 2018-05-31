@@ -17,8 +17,8 @@
     </select>
 
     <insert id="addUser" parameterType="i.am.whp.model.po.User">
-        INSERT INTO user(username,password,email,regtime,logintime)
-        VALUES (#{username},#{password},#{email},#{regtime},#{logintime})
+        INSERT INTO user(username,password,role,email,mobile,address,regtime,logintime)
+        VALUES (#{username},#{password},#{role},#{email},#{mobile},#{address},#{regtime},#{logintime})
     </insert>
 
     <update id="updateUser" parameterType="i.am.whp.model.po.User">

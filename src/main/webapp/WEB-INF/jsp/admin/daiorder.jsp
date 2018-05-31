@@ -17,7 +17,7 @@
         $(function () {
             $("#pagesize").blur(function () {
                 var pageSize = $(this).val();
-                location.href = "getAllOrder?pageNum=1&pageSize=" + pageSize;
+                location.href = "daiLanjian?pageNum=1&pageSize=" + pageSize;
             })
         })
     </script>
@@ -30,7 +30,7 @@
             <span class="divider">/</span>
             <a href="#">订单管理</a>
             <span class="divider">/</span>
-            <a href="#">所有订单</a>
+            <a href="#">待揽件订单</a>
         </ul>
         <table class="table table-striped table-bordered table-hover">
             <tr>
@@ -40,7 +40,6 @@
                 <td>重量</td>
                 <td>总价</td>
                 <td>类型</td>
-                <td>状态</td>
                 <td>下单时间</td>
                 <td>操作</td>
             </tr>
@@ -54,20 +53,23 @@
                     <td>${order.goodswt}</td>
                     <td>${order.postage}</td>
                     <td>${order.category}</td>
-                    <td>${order.orderstate}</td>
                     <td>${order.ordertime}</td>
                     <td>
-                        <input type="button" value="详情" class="btn btn-default"/>
-                        <input type="button" value="删除" class="btn btn-danger"/>
+                        <a href="adminOrderdetail?orderid=${order.orderid}">
+                            <input type="button" value="详情" class="btn btn-default"/>
+                        </a>
+                        <a href="/follow?orderid=${order.orderid}" target="_blank">
+                            <input type="button" value="追踪" class="btn btn-danger"/>
+                        </a>
                     </td>
                 </tr>
             </c:forEach>
         </table>
-        <a href="/getAllOrder?pageNum=1&pageSize=${pagesize}">首页 </a>
-        <a href="/getAllOrder?pageNum=${pagenum-1 le 1 ? 1 : pagenum-1}&pageSize=${pagesize}">上一页 </a>
+        <a href="/daiLanjian?pageNum=1&pageSize=${pagesize}">首页 </a>
+        <a href="/daiLanjian?pageNum=${pagenum-1 le 1 ? 1 : pagenum-1}&pageSize=${pagesize}">上一页 </a>
         第${pagenum}/${pageTotal}页
-        <a href="/getAllOrder?pageNum=${pagenum+1 ge pageTotal ? pageTotal : pagenum+1}&pageSize=${pagesize}">下一页 </a>
-        <a href="/getAllOrder?pageNum=${pageTotal}&pageSize=${pagesize}">尾页</a>
+        <a href="/daiLanjian?pageNum=${pagenum+1 ge pageTotal ? pageTotal : pagenum+1}&pageSize=${pagesize}">下一页 </a>
+        <a href="/daiLanjian?pageNum=${pageTotal}&pageSize=${pagesize}">尾页</a>
         页面大小<input id="pagesize" type="text" value="${pagesize}" style="width: 20px;text-align: center"/>
         <br/>
     </div>
