@@ -5,17 +5,17 @@
 
 <mapper namespace="i.am.whp.dao.OrderDao">
 
-    <select id="query2Order" resultType="i.am.whp.model.po.OrderInfo">
+    <select id="queryOrder" resultType="i.am.whp.model.po.OrderInfo">
         select * from orderinfo
         where username = #{username} order by ordertime desc
     </select>
 
-    <select id="getAll3Order" resultType="i.am.whp.model.po.OrderInfo">
+    <select id="getAllOrder" resultType="i.am.whp.model.po.OrderInfo">
         select * from orderinfo
-        21313213
+        order by ordertime desc
     </select>
 
-    <select id="getAll4OrderByState" resultType="i.am.whp.model.po.OrderInfo">
+    <select id="getAllOrderByState" resultType="i.am.whp.model.po.OrderInfo">
         select * from orderinfo
         where orderstate=#{state}
         order by ordertime desc
