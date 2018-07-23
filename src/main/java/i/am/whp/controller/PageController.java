@@ -88,4 +88,8 @@ public class PageController {
     public String addVehicle() {
         return "admin/addvehicle";
     }
+    @RequestMapping("/addprice")
+    public String addprice() {
+        return "admin/addprice";
+    }
 }

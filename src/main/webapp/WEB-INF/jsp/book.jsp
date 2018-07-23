@@ -41,6 +41,7 @@
                         $("#perkgprice").html(result.perkgprice);
                         $("#sendcity").val(result.sendcity);
                         $("#reachcity").val(result.reachcity);
+                        $("#discount").html(result.discount);
                     } else {
                         jqueryAlert({
                             'icon': '/images/warning.png',
@@ -51,6 +52,7 @@
                         $("#perkgprice").html(0);
                         $("#sendcity").val();
                         $("#reachcity").val();
+                        $("#discount").html(0);
                     }
                 }, "json"
             );
@@ -247,7 +249,7 @@
                                 <tr>
                                     <td><input id="totalweight" name="totalweight" type="text" class="wenben"
                                                placeholder="在这里输入"></td>
-                                    <td id="discount">0.92</td>
+                                    <td id="discount">0</td>
                                     <td><i id="totalprice">0</i></td>
                                     <input type="hidden" name="totalprice" id="totalprice2"/>
                                 </tr>

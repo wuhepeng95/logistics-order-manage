@@ -12,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -34,7 +33,7 @@ public class LogisticsController {
 
     @RequestMapping(value = "/queryPrice", produces = "text/plain;charset=UTF-8")
     @ResponseBody
-    public String queryPrice(String fahuoprovince, String fahuocity, String shouhuoprovince, String shouhuocity, HttpSession session) {
+    public String queryPrice(String fahuoprovince, String fahuocity, String shouhuoprovince, String shouhuocity) {
         if (fahuoprovince == null || shouhuoprovince == null) {
             return "";
         }

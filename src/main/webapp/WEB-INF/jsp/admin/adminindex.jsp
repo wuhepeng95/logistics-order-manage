@@ -70,11 +70,14 @@
             <div class="collapsed">
                 <span>车辆管理</span>
                 <a href="/getAllVehicle" target="content">全部车辆</a>
-                <a href="/loadVehicle">车载信息</a>
                 <a href="/addVehicle" target="content">添加车辆</a>
             </div>
+            <div class="collapsed">
+                <span>价格控制</span>
+                <a href="/getAllPrice" target="content">全部价单</a>
+                <a href="/addprice" target="content">添加记录</a>
+            </div>
         </div>
-
     </div>
     <div class="Switch"></div>
     <script type="text/javascript">

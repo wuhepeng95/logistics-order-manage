@@ -6,9 +6,33 @@
 <mapper namespace="i.am.whp.dao.LogisticsDao">
     <select id="queryPrice" resultType="i.am.whp.model.po.LogisticsPrice"
             parameterType="i.am.whp.model.po.LogisticsPrice">
-        SELECT sendcity,reachcity,startprice,perkgprice FROM logisticsprice
+        SELECT * FROM logisticsprice
         WHERE sendcity = #{sendcity} and reachcity = #{reachcity}
     </select>
+    <select id="queryAllPrice" resultType="i.am.whp.model.po.LogisticsPrice"
+            parameterType="i.am.whp.model.po.LogisticsPrice">
+        SELECT * FROM logisticsprice
+    </select>
+    <select id="queryPriceById" resultType="i.am.whp.model.po.LogisticsPrice"
+            parameterType="i.am.whp.model.po.LogisticsPrice">
+        SELECT * FROM logisticsprice where priceid = #{priceid}
+    </select>
+
+    <update id="updatePrice" parameterType="i.am.whp.model.po.LogisticsPrice">
+        update logisticsprice
+        <trim prefix="set" suffixOverrides=",">
+            <if test="startprice!=0">startprice=#{startprice},</if>
+            <if test="perkgprice!=0">perkgprice=#{perkgprice},</if>
+            <if test="discount!=0">discount=#{discount},</if>
+        </trim>
+        where priceid = #{priceid}
+    </update>
+
+    <insert id="addNewPrice" parameterType="i.am.whp.model.po.LogisticsPrice">
+        insert into logisticsprice(sendcity,reachcity,startprice,perkgprice,discount)
+        values (#{sendcity},#{reachcity},#{startprice},#{perkgprice},#{discount})
+    </insert>
+
 
     <insert id="addLogisticsInfo" parameterType="i.am.whp.model.po.LogisticsInfo">
         INSERT INTO logisticsinfo(orderid,info,logisticsstate,updatetime)

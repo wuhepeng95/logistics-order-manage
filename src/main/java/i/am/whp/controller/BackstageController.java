@@ -5,10 +5,7 @@ import i.am.whp.model.enums.Category;
 import i.am.whp.model.enums.OrderState;
 import i.am.whp.model.enums.Role;
 import i.am.whp.model.enums.VehicleState;
-import i.am.whp.model.po.LogisticsInfo;
-import i.am.whp.model.po.OrderInfo;
-import i.am.whp.model.po.User;
-import i.am.whp.model.po.Vehicle;
+import i.am.whp.model.po.*;
 import i.am.whp.service.LogisticsService;
 import i.am.whp.service.OrderService;
 import i.am.whp.service.UserService;
@@ -356,4 +353,50 @@ public class BackstageController {
         return "redirect:/changelogistics";
     }
 
+    //----------------价格控制------------------
+    @RequestMapping("/getAllPrice")
+    public String getAllPrice(Model model) {
+        List<LogisticsPrice> logisticsPrices = logisticsService.queryAllPrice();
+        model.addAttribute("allPrice", logisticsPrices);
+        return "admin/allprice";
+    }
+
+    @RequestMapping("/doAddPrice")
+    public String addNewPrice(String fahuoprovince, String fahuocity, String shouhuoprovince, String shouhuocity, String startprice, String perkgprice, String discount) {
+        LogisticsPrice logisticsPrice = new LogisticsPrice();
+        logisticsPrice.setSendcity(fahuoprovince.concat(fahuocity));
+        logisticsPrice.setReachcity(shouhuoprovince.concat(shouhuocity));
+        logisticsPrice.setStartprice(Integer.parseInt(startprice));
+        logisticsPrice.setPerkgprice(Integer.parseInt(perkgprice));
+        logisticsPrice.setDiscount(Float.parseFloat(discount));
+        logisticsService.addNewPrice(logisticsPrice);
+        return "redirect:/getAllPrice";
+    }
+
+    @RequestMapping("/doEditPrice")
+    public String doEditPrice(String priceid, String startprice, String perkgprice, String discount) {
+        LogisticsPrice logisticsPrice = new LogisticsPrice();
+        logisticsPrice.setPriceid(Integer.parseInt(priceid));
+        logisticsPrice.setStartprice(Integer.parseInt(startprice));
+        logisticsPrice.setPerkgprice(Integer.parseInt(perkgprice));
+        logisticsPrice.setDiscount(Float.parseFloat(discount));
+        logisticsService.updatePrice(logisticsPrice);
+        return "redirect:/getAllPrice";
+    }
+
+    @RequestMapping("/cancelDiscount")
+    public String cancelDiscount(String priceid) {
+        LogisticsPrice logisticsPrice = new LogisticsPrice();
+        logisticsPrice.setPriceid(Integer.parseInt(priceid));
+        logisticsPrice.setDiscount(1.0f);
+        logisticsService.updatePrice(logisticsPrice);
+        return "redirect:/getAllPrice";
+    }
+
+    @RequestMapping("/editPrice")
+    public String editPrice(String priceid, Model model) {
+        LogisticsPrice logisticsPrice = logisticsService.queryPriceById(Integer.parseInt(priceid));
+        model.addAttribute("editPrice", logisticsPrice);
+        return "admin/editprice";
+    }
 }

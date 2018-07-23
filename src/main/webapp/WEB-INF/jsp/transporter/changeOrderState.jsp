@@ -86,7 +86,7 @@
                 <span class="divider">/</span>
                 <a href="#">订单状态变更</a>
             </ul>
-            <div class="title_right"><strong>更改物流信息</strong></div>
+            <div class="title_right"><strong>更改订单状态</strong></div>
 
             <form action="/doChangeOrderState" method="post" id="formid" class="form-horizontal">
                 <div class="control-group">
