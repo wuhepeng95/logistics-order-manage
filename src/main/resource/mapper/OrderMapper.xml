@@ -23,9 +23,9 @@
 
     <delete id="deleteOrder">
         delete from orderinfo
+        where orderid = #{orderid}
     </delete>
 
-    123312
     <update id="updateOrder" parameterType="i.am.whp.model.po.OrderInfo">
         update orderinfo
         <trim prefix="set" suffixOverrides=",">
@@ -43,8 +43,8 @@
     <select id="queryOrderDetail" resultType="i.am.whp.model.OrderDetailVo">
         SELECT orderid, oi.username, goodswt, postage,category, consigneename,consigneephone, sendaddress,consignorname, consignorphone,reachaddress,ordertime,orderstate
         from orderinfo oi
-        left join conigneeinfo cee on oi.consigneeid = cee.consigneeid
-        left join consignornfo cor on oi.consignorid = cor.consignorid
+        left join consigneeinfo cee on oi.consigneeid = cee.consigneeid
+        left join consignorinfo cor on oi.consignorid = cor.consignorid
         where oi.orderid = #{orderid}
     </select>
 
